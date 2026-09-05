@@ -1,0 +1,3039 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Retail OS | Sales & Inventory Copilot</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4f7ff 0%,
+            #f8fafc 45%,
+            #eef7ff 100%
+        );
+
+    color: #172033;
+    min-height: 100vh;
+}
+
+
+/* =========================================
+   TOP BAR
+========================================= */
+
+.topbar {
+    height: 76px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #111827,
+            #172554,
+            #1e3a8a
+        );
+
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 42px;
+
+    box-shadow:
+        0 4px 20px rgba(15, 23, 42, 0.18);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-mark {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #3b82f6,
+            #7c3aed
+        );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+
+    box-shadow:
+        0 5px 18px rgba(59, 130, 246, .35);
+}
+
+.logo-text h2 {
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.logo-text span {
+    display: block;
+    font-size: 9px;
+    color: #bfdbfe;
+    margin-top: 3px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.top-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.command {
+    font-size: 12px;
+    color: #dbeafe;
+}
+
+.live {
+    padding: 8px 13px;
+    border-radius: 20px;
+
+    background: rgba(34, 197, 94, .12);
+    border: 1px solid rgba(74, 222, 128, .25);
+
+    color: #86efac;
+
+    font-size: 10px;
+    font-weight: 800;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.container {
+    max-width: 1400px;
+    margin: auto;
+    padding: 35px 42px 60px;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.hero-label {
+    display: inline-block;
+
+    font-size: 10px;
+    color: #4f46e5;
+    font-weight: 900;
+
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+
+    margin-bottom: 9px;
+
+    background: #eef2ff;
+
+    padding: 6px 10px;
+
+    border-radius: 20px;
+}
+
+.hero h1 {
+    font-size: 35px;
+    letter-spacing: -1.2px;
+    margin-bottom: 8px;
+    color: #111827;
+}
+
+.hero p {
+    color: #64748b;
+    font-size: 14px;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 12px;
+}
+
+.hero-stat {
+    min-width: 95px;
+
+    padding: 15px 18px;
+
+    background: white;
+
+    border-radius: 14px;
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 5px 18px rgba(30, 41, 59, .06);
+}
+
+.hero-stat strong {
+    display: block;
+    font-size: 23px;
+    color: #1e3a8a;
+}
+
+.hero-stat span {
+    font-size: 9px;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: .8px;
+}
+
+
+/* =========================================
+   COMMAND GRID
+========================================= */
+
+.command-grid {
+    display: grid;
+
+    grid-template-columns:
+        1.65fr 1fr;
+
+    gap: 22px;
+
+    margin-bottom: 22px;
+}
+
+
+/* =========================================
+   COPILOT
+========================================= */
+
+.copilot {
+
+    min-height: 400px;
+
+    border-radius: 24px;
+
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(99, 102, 241, .35),
+            transparent 28%
+        ),
+
+        radial-gradient(
+            circle at 10% 100%,
+            rgba(14, 165, 233, .20),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #172554,
+            #1e1b4b
+        );
+
+    color: white;
+
+    padding: 32px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 18px 45px rgba(30, 41, 59, .22);
+}
+
+.copilot::before {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(147, 197, 253, .18);
+
+    right: -90px;
+    top: -100px;
+}
+
+.copilot::after {
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(196, 181, 253, .15);
+
+    right: -35px;
+    top: -45px;
+}
+
+.ai-tag {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    background: rgba(255,255,255,.09);
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+
+    color: #bfdbfe;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    position: relative;
+    z-index: 2;
+}
+
+.ai-tag-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #60a5fa;
+
+    box-shadow:
+        0 0 10px #60a5fa;
+}
+
+.copilot h2 {
+    font-size: 31px;
+
+    margin-top: 24px;
+
+    max-width: 500px;
+
+    line-height: 1.13;
+
+    position: relative;
+    z-index: 2;
+}
+
+.copilot-description {
+    color: #aab6ca;
+
+    font-size: 13px;
+
+    margin-top: 11px;
+
+    max-width: 530px;
+
+    line-height: 1.65;
+
+    position: relative;
+    z-index: 2;
+}
+
+.question-box {
+    display: flex;
+
+    margin-top: 27px;
+
+    background: white;
+
+    padding: 5px;
+
+    border-radius: 13px;
+
+    max-width: 650px;
+
+    position: relative;
+    z-index: 3;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.16);
+}
+
+#question {
+    flex: 1;
+
+    border: none;
+    outline: none;
+
+    padding: 13px;
+
+    font-size: 13px;
+
+    min-width: 0;
+
+    color: #1e293b;
+}
+
+#question::placeholder {
+    color: #94a3b8;
+}
+
+#askBtn {
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #4f46e5
+        );
+
+    color: white;
+
+    padding: 0 22px;
+
+    border-radius: 9px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+#askBtn:hover {
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 5px 15px rgba(37, 99, 235, .35);
+}
+
+#askBtn:disabled {
+    opacity: .7;
+    cursor: wait;
+}
+
+.quick {
+    display: flex;
+
+    gap: 7px;
+
+    flex-wrap: wrap;
+
+    margin-top: 15px;
+
+    position: relative;
+    z-index: 3;
+}
+
+.quick button {
+    background: rgba(255,255,255,.07);
+
+    color: #dbeafe;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    border-radius: 20px;
+
+    padding: 7px 12px;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+.quick button:hover {
+    background: rgba(96,165,250,.18);
+
+    border-color:
+        rgba(147,197,253,.3);
+
+    color: white;
+}
+
+
+/* =========================================
+   COPILOT RESULT
+========================================= */
+
+#copilotResult {
+
+    display: none;
+
+    background: #f8fafc;
+
+    color: #172033;
+
+    border-radius: 15px;
+
+    margin-top: 22px;
+
+    padding: 20px;
+
+    position: relative;
+
+    z-index: 5;
+
+    border: 1px solid #dbeafe;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.12);
+}
+
+.result-heading {
+
+    color: #2563eb;
+
+    font-size: 11px;
+
+    font-weight: 900;
+
+    text-transform: uppercase;
+
+    letter-spacing: .9px;
+
+    margin-bottom: 12px;
+}
+
+.answer {
+
+    font-size: 13px;
+
+    line-height: 1.75;
+}
+
+.answer strong {
+    color: #1e3a8a;
+}
+
+
+/* =========================================
+   SUPPORTING EVIDENCE
+========================================= */
+
+.evidence-title {
+
+    margin-top: 20px;
+
+    padding-top: 16px;
+
+    border-top: 1px solid #e2e8f0;
+
+    font-size: 12px;
+
+    font-weight: 900;
+
+    color: #334155;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+}
+
+.evidence-title::before {
+
+    content: "✓";
+
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    background: #dcfce7;
+
+    color: #15803d;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 11px;
+
+    font-weight: 900;
+}
+
+.evidence-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(210px, 1fr)
+        );
+
+    gap: 10px;
+
+    margin-top: 10px;
+}
+
+.evidence-card {
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-left: 4px solid #3b82f6;
+
+    border-radius: 10px;
+
+    padding: 13px;
+
+    box-shadow:
+        0 3px 10px rgba(15,23,42,.04);
+
+    transition: .2s;
+}
+
+.evidence-card:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(15,23,42,.08);
+}
+
+.evidence-card h4 {
+
+    font-size: 11px;
+
+    margin-bottom: 9px;
+
+    color: #1e3a8a;
+}
+
+.evidence-card p {
+
+    font-size: 10px;
+
+    color: #64748b;
+
+    margin: 6px 0;
+}
+
+.evidence-card strong {
+
+    color: #172033;
+}
+
+
+/* =========================================
+   ATTENTION
+========================================= */
+
+.attention {
+
+    background: white;
+
+    border-radius: 22px;
+
+    border: 1px solid #e2e8f0;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 8px 25px rgba(15,23,42,.06);
+}
+
+.attention-header {
+
+    padding: 21px 23px 17px;
+
+    border-bottom: 1px solid #edf0f3;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.attention-header h3 {
+
+    font-size: 15px;
+
+    color: #172033;
+}
+
+.attention-header span {
+
+    font-size: 9px;
+
+    color: #dc2626;
+
+    font-weight: 900;
+
+    padding: 5px 9px;
+
+    background: #fef2f2;
+
+    border-radius: 20px;
+}
+
+.attention-list {
+    padding: 7px 0;
+}
+
+.attention-item {
+
+    padding: 16px 23px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.attention-item:last-child {
+    border-bottom: none;
+}
+
+.attention-product {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+}
+
+.alert-icon {
+
+    width: 36px;
+    height: 36px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fee2e2,
+            #fff1f2
+        );
+
+    color: #dc2626;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 15px;
+}
+
+.attention-product strong {
+
+    display: block;
+
+    font-size: 12px;
+
+    color: #1e293b;
+}
+
+.attention-product small {
+
+    display: block;
+
+    color: #8a94a3;
+
+    font-size: 10px;
+
+    margin-top: 3px;
+}
+
+.days {
+    text-align: right;
+}
+
+.days strong {
+
+    display: block;
+
+    color: #dc2626;
+
+    font-size: 15px;
+}
+
+.days span {
+
+    font-size: 8px;
+
+    color: #9ca3af;
+
+    letter-spacing: .5px;
+}
+
+
+/* =========================================
+   INSIGHTS
+========================================= */
+
+.insight-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+
+    margin-bottom: 22px;
+}
+
+.insight {
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 18px;
+
+    padding: 22px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 7px 22px rgba(15,23,42,.05);
+}
+
+.insight::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    border-radius: 50%;
+
+    right: -25px;
+    top: -25px;
+
+    background: #eff6ff;
+}
+
+.insight:nth-child(2)::after {
+    background: #fff7ed;
+}
+
+.insight:nth-child(3)::after {
+    background: #ecfdf5;
+}
+
+.insight-label {
+
+    color: #7b8494;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    font-weight: 800;
+}
+
+.insight-main {
+
+    margin-top: 16px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.insight-number {
+
+    font-size: 29px;
+
+    font-weight: 900;
+
+    color: #172033;
+}
+
+.insight-change {
+
+    font-size: 9px;
+
+    padding: 6px 9px;
+
+    border-radius: 7px;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    font-weight: 900;
+}
+
+.insight:nth-child(2)
+.insight-change {
+
+    background: #fff7ed;
+
+    color: #ea580c;
+}
+
+.insight:nth-child(3)
+.insight-change {
+
+    background: #ecfdf5;
+
+    color: #059669;
+}
+
+.insight p {
+
+    color: #8a94a3;
+
+    font-size: 11px;
+
+    margin-top: 7px;
+}
+
+
+/* =========================================
+   ANALYTICS
+========================================= */
+
+.analytics-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1.35fr 1fr;
+
+    gap: 22px;
+}
+
+.panel {
+
+    background: white;
+
+    border-radius: 18px;
+
+    border: 1px solid #e2e8f0;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 7px 22px rgba(15,23,42,.05);
+}
+
+.panel-head {
+
+    padding: 19px 21px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom: 1px solid #edf0f3;
+}
+
+.panel-head h3 {
+
+    font-size: 14px;
+
+    color: #172033;
+}
+
+.panel-head span {
+
+    color: #94a3b8;
+
+    font-size: 9px;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+
+    width: 100%;
+
+    border-collapse: collapse;
+}
+
+th {
+
+    padding: 12px 18px;
+
+    background: #f8fafc;
+
+    color: #8a94a3;
+
+    text-align: left;
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: .7px;
+}
+
+td {
+
+    padding: 13px 18px;
+
+    border-top: 1px solid #f0f2f4;
+
+    font-size: 11px;
+
+    color: #475569;
+}
+
+td strong {
+
+    font-size: 11px;
+
+    color: #1e293b;
+}
+
+tr:hover td {
+    background: #f8fbff;
+}
+
+
+/* =========================================
+   BADGES
+========================================= */
+
+.badge {
+
+    display: inline-block;
+
+    padding: 5px 8px;
+
+    border-radius: 6px;
+
+    font-size: 9px;
+
+    font-weight: 900;
+}
+
+.critical {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.healthy {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.spike {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.drop {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.stable {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    text-align: center;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+
+    margin-top: 30px;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width: 1000px) {
+
+    .command-grid,
+    .analytics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .insight-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media(max-width: 700px) {
+
+    .topbar {
+        padding: 0 18px;
+    }
+
+    .command {
+        display: none;
+    }
+
+    .container {
+        padding: 25px 18px;
+    }
+
+    .hero {
+        display: block;
+    }
+
+    .hero-stats {
+
+        margin-top: 20px;
+
+        display: grid;
+
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+    .hero-stat {
+        min-width: 0;
+    }
+
+    .hero h1 {
+        font-size: 27px;
+    }
+
+    .insight-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .question-box {
+
+        flex-direction: column;
+
+        background: transparent;
+
+        box-shadow: none;
+    }
+
+    #question {
+
+        border-radius: 10px;
+
+        margin-bottom: 7px;
+
+        height: 45px;
+    }
+
+    #askBtn {
+        height: 43px;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<header class="topbar">
+
+    <div class="logo">
+
+        <div class="logo-mark">
+            ◈
+        </div>
+
+        <div class="logo-text">
+
+            <h2>RETAIL OS</h2>
+
+            <span>
+                Intelligence Platform
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="top-right">
+
+        <div class="command">
+            Command Center
+        </div>
+
+        <div class="live">
+            ● SYSTEM LIVE
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+<section class="hero">
+
+    <div>
+
+        <div class="hero-label">
+            Store Intelligence
+        </div>
+
+        <h1>
+            Know what needs attention.
+        </h1>
+
+        <p>
+            Sales signals, inventory risks and AI-powered
+            decisions from your retail data.
+        </p>
+
+    </div>
+
+
+    <div class="hero-stats">
+
+        <div class="hero-stat">
+
+            <strong id="productsCount">
+                --
+            </strong>
+
+            <span>
+                Products
+            </span>
+
+        </div>
+
+
+        <div class="hero-stat">
+
+            <strong id="alertsCount">
+                --
+            </strong>
+
+            <span>
+                Alerts
+            </span>
+
+        </div>
+
+
+        <div class="hero-stat">
+
+            <strong id="riskCount">
+                --
+            </strong>
+
+            <span>
+                High Risk
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="command-grid">
+
+
+<div class="copilot">
+
+    <div class="ai-tag">
+
+        <span class="ai-tag-dot"></span>
+
+        Gemini Intelligence
+
+    </div>
+
+
+    <h2>
+        Ask your store<br>
+        anything.
+    </h2>
+
+
+    <p class="copilot-description">
+
+        Ask questions about stock, sales performance,
+        product trends, overstock or replenishment.
+        The Copilot answers using your actual retail data.
+
+    </p>
+
+
+    <div class="question-box">
+
+        <input
+            id="question"
+            type="text"
+            placeholder="Which product should I reorder today?"
+        >
+
+
+        <button
+            id="askBtn"
+            onclick="askCopilot()">
+
+            ASK →
+
+        </button>
+
+    </div>
+
+
+    <div class="quick">
+
+        <button
+            onclick="quickAsk(
+                'Which product is most likely to run out of stock?'
+            )">
+
+            ⚠ Low stock
+
+        </button>
+
+
+        <button
+            onclick="quickAsk(
+                'Which products are top selling?'
+            )">
+
+            ★ Top sellers
+
+        </button>
+
+
+        <button
+            onclick="quickAsk(
+                'Which products are overstocked?'
+            )">
+
+            ◈ Overstock
+
+        </button>
+
+
+        <button
+            onclick="quickAsk(
+                'Which products show sales spikes or drops?'
+            )">
+
+            ↗ Sales signals
+
+        </button>
+
+
+        <button
+            onclick="quickAsk(
+                'Which products should be reordered now?'
+            )">
+
+            ↻ Reorder
+
+        </button>
+
+    </div>
+
+
+    <div id="copilotResult">
+
+        <div class="result-heading">
+            ✦ Copilot Analysis
+        </div>
+
+
+        <div
+            id="answer"
+            class="answer">
+        </div>
+
+
+        <div
+            id="evidenceSection"
+            style="display:none;">
+
+            <div class="evidence-title">
+                Supporting Evidence
+            </div>
+
+
+            <div
+                id="evidenceGrid"
+                class="evidence-grid">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="attention">
+
+    <div class="attention-header">
+
+        <h3>
+            ⚠ Attention Required
+        </h3>
+
+        <span>
+            PRIORITY
+        </span>
+
+    </div>
+
+
+    <div
+        id="attentionList"
+        class="attention-list">
+
+        <div class="attention-item">
+
+            <div class="attention-product">
+
+                <div class="alert-icon">
+                    ⚠
+                </div>
+
+                <div>
+
+                    <strong>
+                        Loading...
+                    </strong>
+
+                    <small>
+                        Checking inventory
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<section class="insight-grid">
+
+
+<div class="insight">
+
+    <div class="insight-label">
+        Inventory Health
+    </div>
+
+
+    <div class="insight-main">
+
+        <div
+            class="insight-number"
+            id="inventoryHealth">
+            --
+        </div>
+
+
+        <div class="insight-change">
+            ACTIVE
+        </div>
+
+    </div>
+
+
+    <p>
+        Products currently requiring stock attention
+    </p>
+
+</div>
+
+
+
+<div class="insight">
+
+    <div class="insight-label">
+        Overstock
+    </div>
+
+
+    <div class="insight-main">
+
+        <div
+            class="insight-number"
+            id="overstockCount">
+            --
+        </div>
+
+
+        <div class="insight-change">
+            REVIEW
+        </div>
+
+    </div>
+
+
+    <p>
+        Products with high inventory levels
+    </p>
+
+</div>
+
+
+
+<div class="insight">
+
+    <div class="insight-label">
+        Sales Momentum
+    </div>
+
+
+    <div class="insight-main">
+
+        <div
+            class="insight-number"
+            id="momentumValue">
+            --
+        </div>
+
+
+        <div
+            class="insight-change"
+            id="momentumStatus">
+            SIGNAL
+        </div>
+
+    </div>
+
+
+    <p id="momentumProduct">
+        Detecting sales movement...
+    </p>
+
+</div>
+
+</section>
+
+
+
+<section class="analytics-grid">
+
+
+<div class="panel">
+
+    <div class="panel-head">
+
+        <h3>
+            📈 Sales Activity
+        </h3>
+
+        <span>
+            Trend signals
+        </span>
+
+    </div>
+
+
+    <div class="table-wrap">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Product</th>
+                    <th>Latest</th>
+                    <th>Avg / Day</th>
+                    <th>Change</th>
+                    <th>Signal</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="trendsTable">
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+
+<div class="panel">
+
+    <div class="panel-head">
+
+        <h3>
+            🔴 Inventory Alerts
+        </h3>
+
+        <span>
+            Action required
+        </span>
+
+    </div>
+
+
+    <div class="table-wrap">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Product</th>
+                    <th>Stock</th>
+                    <th>Days</th>
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="alertsTable">
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<section
+    class="panel"
+    style="margin-top:22px;">
+
+    <div class="panel-head">
+
+        <h3>
+            🏆 Top Product Performance
+        </h3>
+
+        <span>
+            Total quantity sold
+        </span>
+
+    </div>
+
+
+    <div class="table-wrap">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Rank</th>
+                    <th>Product</th>
+                    <th>Quantity Sold</th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="topProductsTable">
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+
+<footer>
+
+    Retail OS · Sales & Inventory Copilot ·
+    AI-assisted decision support
+
+</footer>
+
+
+</main>
+
+
+
+<script>
+
+
+/* =========================================
+   FETCH HELPER
+========================================= */
+
+async function fetchJSON(url) {
+
+    const response = await fetch(url);
+
+    if (!response.ok) {
+
+        throw new Error(
+            "Request failed: " + url
+        );
+
+    }
+
+    return await response.json();
+
+}
+
+
+
+/* =========================================
+   DASHBOARD
+========================================= */
+
+async function loadDashboard() {
+
+    try {
+
+        const inventory =
+            await fetchJSON("/api/inventory");
+
+        const alerts =
+            await fetchJSON("/api/alerts");
+
+        const overstock =
+            await fetchJSON("/api/overstock");
+
+        const predictions =
+            await fetchJSON("/api/predictions");
+
+
+        document.getElementById(
+            "productsCount"
+        ).textContent = inventory.length;
+
+
+        document.getElementById(
+            "alertsCount"
+        ).textContent = alerts.length;
+
+
+        document.getElementById(
+            "overstockCount"
+        ).textContent = overstock.length;
+
+
+        const highRisk =
+            predictions.filter(
+                item =>
+                    item.stockout_risk === "HIGH"
+            );
+
+
+        document.getElementById(
+            "riskCount"
+        ).textContent =
+            highRisk.length;
+
+
+        document.getElementById(
+            "inventoryHealth"
+        ).textContent =
+            alerts.length;
+
+
+        loadAttention(alerts);
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Dashboard error:",
+            error
+        );
+
+    }
+
+}
+
+
+
+/* =========================================
+   ATTENTION
+========================================= */
+
+function loadAttention(alerts) {
+
+    const container =
+        document.getElementById(
+            "attentionList"
+        );
+
+    container.innerHTML = "";
+
+
+    const sorted =
+        [...alerts].sort(
+            (a, b) =>
+                Number(a.days_remaining) -
+                Number(b.days_remaining)
+        );
+
+
+    if (sorted.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="attention-item">
+
+                <div class="attention-product">
+
+                    <div class="alert-icon"
+                         style="
+                         background:#dcfce7;
+                         color:#16a34a;
+                         ">
+
+                        ✓
+
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            No critical alerts
+                        </strong>
+
+                        <small>
+                            Inventory looks healthy
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+        return;
+    }
+
+
+    sorted
+        .slice(0, 4)
+        .forEach(item => {
+
+            container.innerHTML += `
+
+                <div class="attention-item">
+
+                    <div class="attention-product">
+
+                        <div class="alert-icon">
+                            ⚠
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                ${item.product_name}
+                            </strong>
+
+                            <small>
+                                ${item.current_stock}
+                                units · reorder at
+                                ${item.reorder_level}
+                            </small>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="days">
+
+                        <strong>
+                            ${Number(
+                                item.days_remaining
+                            ).toFixed(2)}
+                        </strong>
+
+                        <span>
+                            DAYS LEFT
+                        </span>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        });
+
+}
+
+
+
+/* =========================================
+   SALES TRENDS
+========================================= */
+
+async function loadTrends() {
+
+    try {
+
+        const data =
+            await fetchJSON(
+                "/api/sales-trends"
+            );
+
+
+        const table =
+            document.getElementById(
+                "trendsTable"
+            );
+
+        table.innerHTML = "";
+
+
+        if (data.length > 0) {
+
+            const strongest =
+                data.reduce(
+                    (best, item) =>
+                        Number(
+                            item.percentage_change
+                        ) >
+                        Number(
+                            best.percentage_change
+                        )
+                            ? item
+                            : best,
+                    data[0]
+                );
+
+
+            const strongestChange =
+                Number(
+                    strongest.percentage_change
+                );
+
+
+            document.getElementById(
+                "momentumValue"
+            ).textContent =
+                (
+                    strongestChange >= 0
+                        ? "+"
+                        : ""
+                ) +
+                strongestChange.toFixed(1) +
+                "%";
+
+
+            document.getElementById(
+                "momentumProduct"
+            ).textContent =
+                strongest.product_name +
+                " is showing the strongest sales movement.";
+
+
+            document.getElementById(
+                "momentumStatus"
+            ).textContent =
+                strongest.status;
+
+        }
+
+
+        data.forEach(item => {
+
+            let statusClass = "stable";
+
+
+            if (item.status === "SPIKE") {
+                statusClass = "spike";
+            }
+
+
+            if (item.status === "DROP") {
+                statusClass = "drop";
+            }
+
+
+            const change =
+                Number(
+                    item.percentage_change
+                );
+
+
+            table.innerHTML += `
+
+                <tr>
+
+                    <td>
+                        <strong>
+                            ${item.product_name}
+                        </strong>
+                    </td>
+
+                    <td>
+                        ${item.latest_sales}
+                    </td>
+
+                    <td>
+                        ${Number(
+                            item.average_daily_sales
+                        ).toFixed(1)}
+                    </td>
+
+                    <td>
+                        ${
+                            change > 0
+                                ? "+"
+                                : ""
+                        }${change.toFixed(1)}%
+                    </td>
+
+                    <td>
+
+                        <span
+                            class="badge ${statusClass}">
+
+                            ${item.status}
+
+                        </span>
+
+                    </td>
+
+                </tr>
+
+            `;
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Trend error:",
+            error
+        );
+
+    }
+
+}
+
+
+
+/* =========================================
+   ALERT TABLE
+========================================= */
+
+async function loadAlerts() {
+
+    try {
+
+        const data =
+            await fetchJSON(
+                "/api/alerts"
+            );
+
+
+        const table =
+            document.getElementById(
+                "alertsTable"
+            );
+
+        table.innerHTML = "";
+
+
+        data.forEach(item => {
+
+            const statusClass =
+                String(
+                    item.status
+                ).toLowerCase();
+
+
+            table.innerHTML += `
+
+                <tr>
+
+                    <td>
+
+                        <strong>
+                            ${item.product_name}
+                        </strong>
+
+                    </td>
+
+                    <td>
+                        ${item.current_stock}
+                    </td>
+
+                    <td>
+                        ${Number(
+                            item.days_remaining
+                        ).toFixed(2)}
+                    </td>
+
+                    <td>
+
+                        <span
+                            class="badge ${statusClass}">
+
+                            ${item.status}
+
+                        </span>
+
+                    </td>
+
+                </tr>
+
+            `;
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Alert error:",
+            error
+        );
+
+    }
+
+}
+
+
+
+/* =========================================
+   TOP PRODUCTS
+========================================= */
+
+async function loadTopProducts() {
+
+    try {
+
+        const data =
+            await fetchJSON(
+                "/api/top-products"
+            );
+
+
+        const table =
+            document.getElementById(
+                "topProductsTable"
+            );
+
+        table.innerHTML = "";
+
+
+        data.forEach(
+            (item, index) => {
+
+                table.innerHTML += `
+
+                    <tr>
+
+                        <td>
+                            <strong>
+                                #${index + 1}
+                            </strong>
+                        </td>
+
+                        <td>
+                            ${item.product_name}
+                        </td>
+
+                        <td>
+
+                            <strong>
+                                ${item.quantity_sold}
+                            </strong>
+
+                        </td>
+
+                    </tr>
+
+                `;
+
+            }
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Top products error:",
+            error
+        );
+
+    }
+
+}
+
+
+
+/* =========================================
+   ASK COPILOT
+========================================= */
+
+async function askCopilot() {
+
+    const input =
+        document.getElementById(
+            "question"
+        );
+
+
+    const question =
+        input.value.trim();
+
+
+    const result =
+        document.getElementById(
+            "copilotResult"
+        );
+
+
+    const answer =
+        document.getElementById(
+            "answer"
+        );
+
+
+    const evidenceSection =
+        document.getElementById(
+            "evidenceSection"
+        );
+
+
+    const evidenceGrid =
+        document.getElementById(
+            "evidenceGrid"
+        );
+
+
+    const button =
+        document.getElementById(
+            "askBtn"
+        );
+
+
+    if (!question) {
+
+        result.style.display = "block";
+
+        answer.innerHTML = `
+
+            <strong style="color:#dc2626;">
+                Please enter a question.
+            </strong>
+
+        `;
+
+        evidenceSection.style.display = "none";
+
+        return;
+    }
+
+
+    result.style.display = "block";
+
+
+    answer.innerHTML = `
+
+        <div style="
+            color:#2563eb;
+            font-weight:700;
+        ">
+
+            🤖 Analyzing your retail data...
+
+        </div>
+
+        <div style="
+            color:#64748b;
+            font-size:11px;
+            margin-top:6px;
+        ">
+
+            Checking inventory, sales signals
+            and supporting evidence.
+
+        </div>
+
+    `;
+
+
+    evidenceSection.style.display = "none";
+
+    evidenceGrid.innerHTML = "";
+
+    button.disabled = true;
+
+    button.textContent = "ANALYZING...";
+
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/ask",
+                {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        question: question
+                    })
+
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        console.log(
+            "Copilot API Response:",
+            data
+        );
+
+
+        if (!response.ok) {
+
+            answer.innerHTML = `
+
+                <strong style="color:#dc2626;">
+                    Copilot Error
+                </strong>
+
+                <br><br>
+
+                ${
+                    data.error ||
+                    "The server could not process the question."
+                }
+
+            `;
+
+            return;
+        }
+
+
+        if (data.error) {
+
+            answer.innerHTML = `
+
+                <strong style="color:#dc2626;">
+                    Copilot Error
+                </strong>
+
+                <br><br>
+
+                ${data.error}
+
+            `;
+
+            return;
+        }
+
+
+        const aiAnswer =
+            data.answer ||
+            data.response ||
+            data.result ||
+            data.message;
+
+
+        if (!aiAnswer) {
+
+            answer.innerHTML = `
+
+                <strong style="color:#dc2626;">
+                    No answer was returned by the Copilot.
+                </strong>
+
+            `;
+
+            return;
+        }
+
+
+        let formattedAnswer =
+            String(aiAnswer);
+
+
+        formattedAnswer =
+            formattedAnswer
+
+                .replace(
+                    /\*\*(.*?)\*\*/g,
+                    "<strong>$1</strong>"
+                )
+
+                .replace(
+                    /^### (.*?)$/gm,
+                    "<strong>$1</strong>"
+                )
+
+                .replace(
+                    /^## (.*?)$/gm,
+                    "<strong>$1</strong>"
+                )
+
+                .replace(
+                    /\n/g,
+                    "<br>"
+                );
+
+
+        answer.innerHTML =
+            formattedAnswer;
+
+
+        /* =====================================
+           SUPPORTING EVIDENCE
+        ===================================== */
+
+        let evidence = data.evidence;
+
+
+        /*
+         * Backend may return either:
+         *
+         * 1. Array
+         * 2. Single object
+         *
+         * Convert single object into array.
+         */
+
+        if (
+            evidence &&
+            !Array.isArray(evidence) &&
+            typeof evidence === "object"
+        ) {
+
+            evidence = [evidence];
+
+        }
+
+
+        if (
+            Array.isArray(evidence) &&
+            evidence.length > 0
+        ) {
+
+            evidenceSection.style.display =
+                "block";
+
+
+            evidenceGrid.innerHTML = "";
+
+
+            evidence.forEach(item => {
+
+                const card =
+                    createEvidenceCard(item);
+
+
+                if (card) {
+
+                    evidenceGrid.innerHTML += card;
+
+                }
+
+            });
+
+
+            /*
+             * If evidence existed but none of the
+             * special types matched, show generic cards.
+             */
+
+            if (
+                evidenceGrid.innerHTML.trim() === ""
+            ) {
+
+                evidence.forEach(item => {
+
+                    evidenceGrid.innerHTML +=
+                        createGenericEvidenceCard(item);
+
+                });
+
+            }
+
+        }
+
+        else {
+
+            evidenceSection.style.display =
+                "block";
+
+
+            evidenceGrid.innerHTML = `
+
+                <div class="evidence-card"
+                     style="
+                     border-left-color:#94a3b8;
+                     ">
+
+                    <h4>
+                        ℹ Data Evidence
+                    </h4>
+
+                    <p>
+                        The Copilot used the available
+                        retail data to generate this answer.
+                    </p>
+
+                </div>
+
+            `;
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Copilot request failed:",
+            error
+        );
+
+
+        answer.innerHTML = `
+
+            <strong style="color:#dc2626;">
+                Unable to connect to the Copilot.
+            </strong>
+
+            <br><br>
+
+            <span style="
+                font-size:11px;
+                color:#64748b;
+            ">
+
+                ${error.message}
+
+            </span>
+
+        `;
+
+    }
+
+    finally {
+
+        button.disabled = false;
+
+        button.textContent = "ASK →";
+
+    }
+
+}
+
+
+
+/* =========================================
+   QUICK ASK
+========================================= */
+
+function quickAsk(question) {
+
+    document.getElementById(
+        "question"
+    ).value = question;
+
+
+    askCopilot();
+
+}
+
+
+
+/* =========================================
+   EVIDENCE CARD
+========================================= */
+
+function createEvidenceCard(item) {
+
+
+    if (
+        item.type ===
+        "stockout_prediction"
+    ) {
+
+        return `
+
+            <div class="evidence-card"
+                 style="border-left-color:#ef4444;">
+
+                <h4>
+                    🚨 ${item.product_name}
+                </h4>
+
+                <p>
+                    Current Stock:
+                    <strong>
+                        ${item.current_stock}
+                    </strong>
+                    units
+                </p>
+
+                <p>
+                    Reorder Level:
+                    <strong>
+                        ${item.reorder_level}
+                    </strong>
+                    units
+                </p>
+
+                <p>
+                    Avg Daily Sales:
+                    <strong>
+                        ${Number(
+                            item.average_daily_sales
+                        ).toFixed(1)}
+                    </strong>
+                    units/day
+                </p>
+
+                <p>
+                    Estimated Stock Remaining:
+                    <strong>
+                        ${Number(
+                            item.estimated_stockout_days
+                        ).toFixed(2)}
+                        days
+                    </strong>
+                </p>
+
+                <p>
+                    Stockout Risk:
+                    <strong style="color:#dc2626;">
+                        ${item.stockout_risk}
+                    </strong>
+                </p>
+
+                <p>
+                    Recommended Action:
+                    <strong>
+                        ${item.recommended_action}
+                    </strong>
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+
+    if (
+        item.type ===
+        "reorder"
+    ) {
+
+        return `
+
+            <div class="evidence-card"
+                 style="border-left-color:#f59e0b;">
+
+                <h4>
+                    🔄 ${item.product_name}
+                </h4>
+
+                <p>
+                    Current Stock:
+                    <strong>
+                        ${item.current_stock}
+                    </strong>
+                    units
+                </p>
+
+                <p>
+                    Reorder Level:
+                    <strong>
+                        ${item.reorder_level}
+                    </strong>
+                    units
+                </p>
+
+                <p>
+                    Avg Daily Sales:
+                    <strong>
+                        ${Number(
+                            item.average_daily_sales
+                        ).toFixed(1)}
+                    </strong>
+                    units/day
+                </p>
+
+                <p>
+                    Action:
+                    <strong>
+                        ${item.recommended_action}
+                    </strong>
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+
+    if (
+        item.type ===
+        "top_selling"
+    ) {
+
+        return `
+
+            <div class="evidence-card"
+                 style="border-left-color:#8b5cf6;">
+
+                <h4>
+                    🏆 ${item.product_name}
+                </h4>
+
+                <p>
+                    Quantity Sold:
+                    <strong>
+                        ${item.quantity_sold}
+                    </strong>
+                    units
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+
+    if (
+        item.type === "sales_spike" ||
+        item.type === "sales_drop"
+    ) {
+
+        const change =
+            Number(
+                item.percentage_change
+            );
+
+
+        return `
+
+            <div class="evidence-card"
+                 style="
+                 border-left-color:
+                 ${
+                     change >= 0
+                         ? "#2563eb"
+                         : "#ef4444"
+                 };
+                 ">
+
+                <h4>
+
+                    ${
+                        change >= 0
+                            ? "📈"
+                            : "📉"
+                    }
+
+                    ${item.product_name}
+
+                </h4>
+
+                <p>
+                    Latest Sales:
+                    <strong>
+                        ${item.latest_sales}
+                    </strong>
+                </p>
+
+                <p>
+                    Average Daily Sales:
+                    <strong>
+                        ${Number(
+                            item.average_daily_sales
+                        ).toFixed(1)}
+                    </strong>
+                </p>
+
+                <p>
+                    Change:
+                    <strong style="
+                        color:
+                        ${
+                            change >= 0
+                                ? "#2563eb"
+                                : "#dc2626"
+                        };
+                    ">
+
+                        ${
+                            change > 0
+                                ? "+"
+                                : ""
+                        }${change.toFixed(1)}%
+
+                    </strong>
+                </p>
+
+                <p>
+                    Status:
+                    <strong>
+                        ${item.status}
+                    </strong>
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+
+    return "";
+
+}
+
+
+
+/* =========================================
+   GENERIC EVIDENCE CARD
+========================================= */
+
+function createGenericEvidenceCard(item) {
+
+    if (
+        !item ||
+        typeof item !== "object"
+    ) {
+
+        return "";
+
+    }
+
+
+    const keys =
+        Object.keys(item);
+
+
+    let content = "";
+
+
+    keys.forEach(key => {
+
+        const value = item[key];
+
+
+        if (
+            value === null ||
+            value === undefined ||
+            typeof value === "object"
+        ) {
+
+            return;
+
+        }
+
+
+        const label =
+            key
+                .replace(/_/g, " ")
+                .replace(
+                    /\b\w/g,
+                    char => char.toUpperCase()
+                );
+
+
+        content += `
+
+            <p>
+
+                ${label}:
+
+                <strong>
+                    ${value}
+                </strong>
+
+            </p>
+
+        `;
+
+    });
+
+
+    return `
+
+        <div class="evidence-card"
+             style="border-left-color:#64748b;">
+
+            <h4>
+                📊 Supporting Data
+            </h4>
+
+            ${content}
+
+        </div>
+
+    `;
+
+}
+
+
+
+/* =========================================
+   ENTER KEY
+========================================= */
+
+document
+    .getElementById("question")
+    .addEventListener(
+        "keydown",
+        function(event) {
+
+            if (
+                event.key === "Enter"
+            ) {
+
+                askCopilot();
+
+            }
+
+        }
+    );
+
+
+
+/* =========================================
+   INITIAL LOAD
+========================================= */
+
+loadDashboard();
+
+loadTrends();
+
+loadAlerts();
+
+loadTopProducts();
+
+
+</script>
+
+
+</body>
+
+</html>

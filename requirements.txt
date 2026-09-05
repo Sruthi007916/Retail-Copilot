@@ -1,0 +1,5 @@
+Flask
+pandas
+numpy
+google-genai
+python-dotenv
