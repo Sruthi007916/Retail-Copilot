@@ -5,6 +5,9 @@ understand sales performance, inventory health, stockout risks, overstock,
 and replenishment needs.
 
 ---
+## Deployment link
+
+https://retail-copilot-owbv.onrender.com/
 
 ## Overview
 
